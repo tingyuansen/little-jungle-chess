@@ -219,6 +219,9 @@ function fitBoard() {
 window.addEventListener("resize", fitBoard);
 window.visualViewport?.addEventListener("resize", fitBoard);
 new ResizeObserver(fitBoard).observe($("#goal-text"));
+// Re-fit when the frame itself settles (for example right after entering or
+// leaving full screen) so a transition-time measurement cannot stick.
+new ResizeObserver(fitBoard).observe($(".board-frame"));
 document.fonts?.ready.then(fitBoard);
 updateScreenMode();
 if ("serviceWorker" in navigator) {
