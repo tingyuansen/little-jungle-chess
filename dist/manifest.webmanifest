@@ -1,0 +1,36 @@
+{
+  "id": "./",
+  "name": "Little Jungle Chess · 斗兽棋",
+  "short_name": "Little Jungle",
+  "description": "A friendly animal chess adventure for two players at opposite ends of one phone. Play offline, too.",
+  "lang": "en",
+  "start_url": "./",
+  "scope": "./",
+  "display": "fullscreen",
+  "display_override": ["fullscreen", "standalone"],
+  "orientation": "portrait-primary",
+  "background_color": "#103e37",
+  "theme_color": "#103e37",
+  "categories": ["games", "education"],
+  "prefer_related_applications": false,
+  "icons": [
+    {
+      "src": "icons/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "icons/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "icons/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable"
+    }
+  ]
+}
