@@ -1,6 +1,6 @@
 // Bump with changes to the app shell. New versions activate after old tabs close,
 // so a game is never interrupted by a forced reload.
-const CACHE = "little-jungle-shell-v4";
+const CACHE = "little-jungle-shell-v5";
 const ROOT = new URL("./", self.location.href);
 const DEVELOPMENT =
   ROOT.hostname === "localhost" || ROOT.hostname === "127.0.0.1";

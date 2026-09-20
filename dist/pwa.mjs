@@ -151,10 +151,9 @@ function fitBoard() {
   fitScheduled = true;
   requestAnimationFrame(() => {
     fitScheduled = false;
+    const focus = document.body.classList.contains("focus-mode");
     const compact =
-      innerWidth <= 740 ||
-      (innerHeight <= 520 && innerWidth <= 1000) ||
-      document.body.classList.contains("focus-mode");
+      innerWidth <= 740 || (innerHeight <= 520 && innerWidth <= 1000) || focus;
     document.body.classList.toggle("compact-game", compact);
     const area = $(".play-area");
     if (!compact) area.style.removeProperty("width");
@@ -174,7 +173,11 @@ function fitBoard() {
       frame.getBoundingClientRect().height -
       board.getBoundingClientRect().height;
     const landscape = compact && innerHeight <= 520 && innerWidth > innerHeight;
-    const controlsHeight = landscape
+    // Wide full-screen views park the controls beside the board (see the
+    // focus-mode overlay styles), so they no longer consume board height.
+    const sideControls =
+      landscape || (focus && innerWidth >= 700 && innerHeight > 520);
+    const controlsHeight = sideControls
       ? 0
       : nav.getBoundingClientRect().height +
         parseFloat(getComputedStyle(nav).marginTop) +
@@ -196,13 +199,15 @@ function fitBoard() {
       desktopExtra -
       overhead -
       10;
+    // Full screen lets the board grow past the usual phone cap so it fills
+    // the available height; normal views keep the compact width limit.
     const maxWidth = compact
       ? Math.min(
-          460,
+          focus ? Infinity : 460,
           app.clientWidth -
             parseFloat(style.paddingLeft) -
             parseFloat(style.paddingRight) -
-            (landscape ? 270 : 0),
+            (sideControls ? 270 : 0),
         )
       : area.getBoundingClientRect().width;
     area.style.width = `${Math.max(160, Math.min(maxWidth, (remaining * 7) / 9 + paddingX))}px`;

@@ -30,32 +30,6 @@ function render() {
       inside = `<span class="piece ${p.team}">${art(p.rank, "portrait")}<span class="rank">${p.rank}</span></span>`;
     return `<button class="cell ${t.type} ${t.owner ?? ""} ${p?.id === selected ? "selected" : ""} ${m ? "legal" : ""} ${m?.capture ? "capture" : ""} ${last ? "last" : ""}" data-r="${r}" data-c="${c}" aria-label="${p ? `${p.team} ${ANIMALS[p.rank].name}, rank ${p.rank}` : `${t.owner ?? ""} ${t.type}`} at ${String.fromCharCode(65 + c)}${9 - r}${m ? ", legal move" : ""}" ${p?.id === selected ? 'aria-pressed="true"' : ""}>${inside}</button>`;
   }).join("");
-  for (const team of ["orange", "blue"]) {
-    const el = $("#" + team + "-player");
-    el.classList.toggle("active", state.turn === team && !state.winner);
-    const p = state.pieces.find((x) => x.id === selected);
-    el.querySelector(".player-status").textContent = state.winner
-      ? state.winner === team
-        ? "Jungle champion!"
-        : "Well played!"
-      : state.turn === team
-        ? p
-          ? `${ANIMALS[p.rank].name} · tap a glowing square`
-          : "Tap one of your animals"
-        : "Waiting for your turn";
-    el.querySelector(".turn-pill").textContent =
-      state.winner === team ? "WINNER" : "YOUR TURN";
-    el.classList.toggle("champion", state.winner === team);
-    el.querySelector(".caught").textContent = Array.from(
-      { length: 8 },
-      (_, i) => i + 1,
-    )
-      .filter(
-        (rank) => !state.pieces.some((p) => p.team !== team && p.rank === rank),
-      )
-      .map((rank) => ANIMALS[rank].emoji)
-      .join("");
-  }
   $(".board-frame").dataset.turn = state.winner || state.turn;
   $(".board-frame").setAttribute(
     "aria-label",

@@ -11,7 +11,7 @@ Get any animal into the other team’s den. Tap one of your animals, then a glow
 - Traditional 7 × 9 board with rivers, traps and dens.
 - Friendly animal portraits, ranks, touch controls and illustrated rules.
 - Legal movement and capture enforcement, including swimming rats and rat-blocked lion/tiger jumps.
-- Turn-coloured frame, opposite-facing team labels, full-screen button and responsive portrait/landscape layouts.
+- Turn-coloured board frame, full-screen button and responsive portrait/landscape layouts; in full screen the board fills the height.
 - Undo, optional sounds, winner celebration and device-local saved progress.
 
 ## Install on Android

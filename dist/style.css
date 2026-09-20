@@ -74,8 +74,7 @@ p {
   margin: 0;
 }
 h1,
-h2,
-.player strong {
+h2 {
   font-family: "Baloo 2", "Nunito", sans-serif;
 }
 h1 {
@@ -181,81 +180,6 @@ main {
 }
 .play-area {
   min-width: 0;
-}
-.player {
-  height: 61px;
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  padding: 8px 12px;
-  border-radius: 16px;
-  margin: 10px 0;
-  background: #0a302e;
-  box-shadow: inset 0 0 0 1px #ffffff10;
-  transition: background 0.25s;
-}
-.player.active.orange {
-  background: #69452d;
-  box-shadow: inset 0 0 0 1px #ecb85a77;
-}
-.player.active.blue {
-  background: #205166;
-  box-shadow: inset 0 0 0 1px #6bceee77;
-}
-.top-player {
-  transform: rotate(180deg);
-}
-.player-badge {
-  display: grid;
-  place-items: center;
-  width: 35px;
-  height: 35px;
-  border-radius: 50%;
-  font-weight: 900;
-  background: var(--blue);
-  color: #153e52;
-  box-shadow: 0 3px #277492;
-}
-.orange .player-badge {
-  background: #ffb05a;
-  color: #663516;
-  box-shadow: 0 3px #b2642f;
-}
-.player strong {
-  display: block;
-  font-size: 20px;
-  line-height: 1.1;
-}
-.player-status {
-  font-size: 12px;
-  color: #c7d9c6;
-}
-.player-copy {
-  flex: 1;
-}
-.turn-pill {
-  display: none;
-  font-size: 10px;
-  letter-spacing: 0.07em;
-  font-weight: 900;
-  background: #ffe39a;
-  color: #594019;
-  padding: 7px 9px;
-  border-radius: 7px;
-}
-.blue .turn-pill {
-  background: #b5e9ff;
-  color: #194b60;
-}
-.active .turn-pill {
-  display: block;
-}
-.caught {
-  display: flex;
-  max-width: 58px;
-  flex-wrap: wrap;
-  gap: 2px;
-  font-size: 12px;
 }
 .board-frame {
   padding: 12px;
@@ -673,9 +597,6 @@ dialog a {
   .intro h2 {
     font-size: 43px;
   }
-  .player {
-    height: 53px;
-  }
   .board-frame {
     padding: 9px;
   }
@@ -737,31 +658,9 @@ dialog a {
     display: block;
   }
   .play-area {
-    width: min(100%, calc((100dvh - 210px) * 0.7778));
+    width: min(100%, calc((100dvh - 110px) * 0.7778));
     min-width: 260px;
     margin: auto;
-  }
-  .player {
-    height: 48px;
-    margin: 7px 0;
-    padding: 6px 9px;
-    border-radius: 12px;
-    gap: 7px;
-  }
-  .player strong {
-    font-size: 18px;
-  }
-  .player-status {
-    font-size: 11px;
-  }
-  .player-badge {
-    width: 29px;
-    height: 29px;
-    font-size: 14px;
-  }
-  .turn-pill {
-    font-size: 9px;
-    padding: 6px;
   }
   .board-frame {
     padding: 7px;
@@ -809,10 +708,6 @@ dialog a {
   .water-mark {
     font-size: 18px;
   }
-  .caught {
-    max-width: 39px;
-    font-size: 10px;
-  }
   .animal-card {
     min-height: 54px;
   }
@@ -833,18 +728,11 @@ dialog a {
   h1 {
     font-size: 20px;
   }
-  .player {
-    height: 41px;
-    margin: 5px 0;
-  }
-  .player-status {
-    font-size: 10px;
-  }
   .game-controls {
     margin-top: 9px;
   }
   .play-area {
-    width: min(100%, calc((100dvh - 174px) * 0.7778));
+    width: min(100%, calc((100dvh - 90px) * 0.7778));
     min-width: 220px;
   }
   .portrait > span {
@@ -857,12 +745,6 @@ dialog a {
   }
   .den-mark small {
     display: none;
-  }
-  .turn-pill {
-    font-size: 8px;
-  }
-  .player strong {
-    font-size: 16px;
   }
 }
 @media (prefers-reduced-motion: reduce) {
@@ -1071,40 +953,6 @@ dialog a {
   --turn-color: #60caff;
   --turn-shadow: #2b708f;
 }
-.board-frame .player {
-  margin: 0;
-  height: 48px;
-  padding: 5px 8px;
-  box-shadow: none;
-  border-radius: 9px;
-  background: transparent;
-}
-.board-frame .top-player {
-  margin-bottom: 6px;
-}
-.board-frame #orange-player {
-  margin-top: 6px;
-}
-.board-frame .player.active.orange,
-.board-frame .player.champion.orange {
-  background: #82532e;
-}
-.board-frame .player.active.blue,
-.board-frame .player.champion.blue {
-  background: #215b76;
-}
-.champion .turn-pill {
-  display: block;
-}
-.board-frame .player strong {
-  font-size: 19px;
-}
-.board-frame .player-status {
-  font-size: 12px;
-}
-.board-frame .turn-pill {
-  font-size: 11px;
-}
 .install-icon {
   border-radius: 20px;
   display: block;
@@ -1172,29 +1020,6 @@ dialog a {
   border-width: 3px;
   border-radius: 16px;
 }
-.compact-game .player {
-  height: 43px;
-  padding: 4px 5px;
-  gap: 6px;
-}
-.compact-game .player-badge {
-  width: 27px;
-  height: 27px;
-}
-.compact-game .player strong {
-  font-size: 17px;
-}
-.compact-game .player-status {
-  font-size: 11px;
-}
-.compact-game .turn-pill {
-  font-size: 10px;
-  padding: 6px;
-}
-.compact-game .caught {
-  max-width: 30px;
-  font-size: 10px;
-}
 .compact-game .game-controls {
   margin-top: 10px;
   gap: 0;
@@ -1238,11 +1063,17 @@ dialog a {
 }
 .focus-mode .app {
   min-height: 100dvh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
-.compact-game .board-frame:has(.champion) {
-  box-shadow:
-    0 5px 0 var(--turn-shadow),
-    0 0 25px color-mix(in srgb, var(--turn-color) 55%, transparent);
+.focus-mode main {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.focus-mode .play-area {
+  max-width: none;
 }
 @media (max-height: 520px) and (orientation: landscape) {
   .compact-game .brand {
@@ -1270,22 +1101,40 @@ dialog a {
     width: 100px;
     min-height: 0;
   }
-  .compact-game .player {
-    height: 32px;
-  }
-  .compact-game .player-status,
-  .compact-game .caught,
-  .compact-game .player-badge {
-    display: none;
-  }
-  .compact-game .player strong {
-    font-size: 14px;
-  }
-  .compact-game .turn-pill {
-    font-size: 9px;
-    padding: 4px;
-  }
   .compact-game .brand h1 {
+    text-align: center;
+  }
+}
+/* Full screen on wide screens (desktop, tablets): the header, controls and
+   hint step aside into overlay columns so the board fills the height. */
+@media (min-width: 700px) and (min-height: 521px) {
+  .focus-mode .brand {
+    position: absolute;
+    left: max(20px, env(safe-area-inset-left));
+    top: 18px;
+    width: 150px;
+    height: auto;
+    flex-direction: column;
+    gap: 15px;
+    justify-content: flex-start;
+  }
+  .focus-mode .game-controls {
+    position: absolute;
+    right: max(20px, env(safe-area-inset-right));
+    top: 18px;
+    width: 130px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+  }
+  .focus-mode .goal-mini {
+    position: absolute;
+    right: 20px;
+    top: 170px;
+    width: 130px;
+    min-height: 0;
+  }
+  .focus-mode .brand h1 {
     text-align: center;
   }
 }
@@ -1308,16 +1157,6 @@ main {
   }
 }
 @media (max-width: 360px) {
-  .compact-game .player-status,
-  .compact-game .caught {
-    display: none;
-  }
-  .compact-game .player {
-    height: 34px;
-  }
-  .compact-game .player strong {
-    font-size: 16px;
-  }
   .compact-game .goal-mini {
     font-size: 12px;
   }
