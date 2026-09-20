@@ -191,9 +191,12 @@ function fitBoard() {
         parseFloat(getComputedStyle(caption).marginTop) +
         footer.getBoundingClientRect().height +
         parseFloat(getComputedStyle(footer).marginTop);
+    // With side controls the game block is vertically centered, so its
+    // measured top offset is self-referential; budget the whole viewport.
+    const areaTop = sideControls ? 0 : area.getBoundingClientRect().top;
     const remaining =
       (window.visualViewport?.height || innerHeight) -
-      area.getBoundingClientRect().top -
+      areaTop -
       parseFloat(style.paddingBottom) -
       controlsHeight -
       desktopExtra -
